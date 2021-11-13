@@ -19,8 +19,8 @@ namespace DotNetCoreKoans.Koans
         {
             var batman = new Tuple<string, string>("Bruce", "Wayne");
 
-            Assert.Equal(FILL_ME_IN, batman.Item1); // FirstName
-            Assert.Equal(FILL_ME_IN, batman.Item2); // LastName
+            Assert.Equal("Bruce", batman.Item1); // FirstName
+            Assert.Equal("Wayne", batman.Item2); // LastName
         }
 
         // with some syntax sugar
@@ -29,8 +29,8 @@ namespace DotNetCoreKoans.Koans
         {
             var batman = ("Bruce", "Wayne");
 
-            Assert.Equal(FILL_ME_IN, batman.Item1); // FirstName
-            Assert.Equal(FILL_ME_IN, batman.Item2); // LastName
+            Assert.Equal("Bruce", batman.Item1); // FirstName
+            Assert.Equal("Wayne", batman.Item2); // LastName
         }
 
         // You can name values in the tuple
@@ -40,8 +40,8 @@ namespace DotNetCoreKoans.Koans
             var lastName = "Wayne";
             var batman = (firstName: "Bruce", lastName);
 
-            Assert.Equal(FILL_ME_IN, batman.firstName);
-            Assert.Equal(FILL_ME_IN, batman.lastName);
+            Assert.Equal("Bruce", batman.firstName);
+            Assert.Equal("Wayne", batman.lastName);
         }
 
         // A tuple can be used as a function parameter
@@ -50,7 +50,7 @@ namespace DotNetCoreKoans.Koans
         {
             var batman = (firstName: "Bruce", lastName: "Wayne");
 
-            Assert.Equal(FILL_ME_IN, GetFullName(batman));
+            Assert.Equal("Bruce Wayne", GetFullName(batman));
         }
 
         public string GetFullName((string firstName, string lastName) data)
@@ -65,8 +65,8 @@ namespace DotNetCoreKoans.Koans
             var enemy = new List<string>() { "Joker", "Penguin", "Riddler", "Catwoman" };
             var batman1966 = (firstName: "Bruce", lastName: "Wayne", enemy);
 
-            Assert.Equal(typeof(FillMeIn), batman1966.firstName.GetType());
-            Assert.Equal(typeof(FillMeIn), batman1966.enemy.GetType());
+            Assert.Equal(typeof(string), batman1966.firstName.GetType());
+            Assert.Equal(typeof(List<string>), batman1966.enemy.GetType());
 
         }
 
@@ -84,13 +84,13 @@ namespace DotNetCoreKoans.Koans
             var batman = (firstName: "Bruce", lastName: "Wayne");
 
             var bruceWayne = ("Bruce", "Wayne");
-            Assert.Equal(FILL_ME_IN, batman == bruceWayne);
+            Assert.Equal(true, batman == bruceWayne);
 
             var wayneBruce = ("Wayne", "Bruce");
-            Assert.Equal(FILL_ME_IN, batman == wayneBruce);
+            Assert.Equal(false, batman == wayneBruce);
 
             var azrael = (firstName: "Jean-Paul", lastName: "Valley");
-            Assert.Equal(FILL_ME_IN, batman == azrael);
+            Assert.Equal(false, batman == azrael);
         }
 
         // Two lists in a tuple are compared by reference
@@ -103,11 +103,11 @@ namespace DotNetCoreKoans.Koans
 
             var aDud = (firstName: "Bruce", lastName: "Wayne"
                 , enemy: enemy1966);
-            Assert.Equal(FILL_ME_IN, batman1966 == aDud);
+            Assert.Equal(true, batman1966 == aDud);
 
             var newBatman1966 = (firstName: "Bruce", lastName: "Wayne"
                 , enemy: new List<string>() { "Joker", "Penguin", "Riddler", "Catwoman" });
-            Assert.Equal(FILL_ME_IN, batman1966 == newBatman1966); //this one is tricky
+            Assert.Equal(false, batman1966 == newBatman1966); //this one is tricky
         }
 
         #endregion
@@ -123,13 +123,13 @@ namespace DotNetCoreKoans.Koans
             var otherEnemies = new List<string>();
             var mainEnemy = extractMainEnemyWithOut("Joker,Penguin,Riddler,Catwoman", out otherEnemies);
 
-            Assert.Equal(FILL_ME_IN, mainEnemy);
-            Assert.Equal(FILL_ME_IN, string.Join(",", otherEnemies));
+            Assert.Equal("Joker", mainEnemy);
+            Assert.Equal("Penguin,Riddler,Catwoman", string.Join(",", otherEnemies));
 
             var extract = extractMainEnemyWithTuple("Joker,Penguin,Riddler,Catwoman");
 
-            Assert.Equal(FILL_ME_IN, extract.mainEnemy);
-            Assert.Equal(FILL_ME_IN, string.Join(",", extract.othersEnemies));
+            Assert.Equal("Joker", extract.mainEnemy);
+            Assert.Equal("Penguin,Riddler,Catwoman", string.Join(",", extract.othersEnemies));
 
             // What syntax do you prefer?
         }

@@ -32,7 +32,7 @@ namespace DotNetCoreKoans.Koans
                 awareness += 1;
             }
 
-            Assert.Equal(FILL_ME_IN, awareness);
+            Assert.Equal(1, awareness);
         }
 
         [Step(3)]
@@ -53,7 +53,7 @@ namespace DotNetCoreKoans.Koans
                 status = exceptionObject.Message;
             }
 
-            Assert.Equal(FILL_ME_IN, status);
+            Assert.Equal("Ohm", status);
 
         }
 
@@ -77,7 +77,7 @@ namespace DotNetCoreKoans.Koans
                 Console.WriteLine("Our program had an error, your karma was not saved. Sorry man");
             }
 
-            Assert.Equal(FILL_ME_IN, KarmaIsSaved);
+            Assert.Equal(false, KarmaIsSaved);
         }
 
         [Step(5)]
@@ -98,7 +98,7 @@ namespace DotNetCoreKoans.Koans
                 myCurrentState = states[2];
             }
 
-            Assert.Equal(FILL_ME_IN, myCurrentState);
+            Assert.Equal("Gaining Awareness", myCurrentState);
         }
 
         [Step(6)]
@@ -122,7 +122,7 @@ namespace DotNetCoreKoans.Koans
                 IKnowNothingAboutExceptions = false;
             }
 
-            Assert.Equal(FILL_ME_IN, IKnowNothingAboutExceptions);
+            Assert.Equal(false, IKnowNothingAboutExceptions);
         }
 
         // This is how we defined our own custom exception. 

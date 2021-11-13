@@ -20,7 +20,7 @@ namespace DotNetCoreKoans.Koans
                 b = false;
             }
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equal(true, b);
         }
 
         [Step(2)]
@@ -32,7 +32,7 @@ namespace DotNetCoreKoans.Koans
             else
                 b = false;
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equal(true, b);
 
         }
 
@@ -45,7 +45,7 @@ namespace DotNetCoreKoans.Koans
                 b = true;
             }
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equal(true, b);
         }
 
         [Step(4)]
@@ -55,7 +55,7 @@ namespace DotNetCoreKoans.Koans
             if (true)
                 b = true;
 
-            Assert.Equal(FILL_ME_IN, b);
+            Assert.Equal(true, b);
         }
 
         [Step(5)]
@@ -70,15 +70,15 @@ namespace DotNetCoreKoans.Koans
                 b1 = true;
             b2 = true;
 
-            Assert.Equal(FILL_ME_IN, b1);
-            Assert.Equal(FILL_ME_IN, b2);
+            Assert.Equal(false, b1);
+            Assert.Equal(true, b2);
         }
 
         [Step(6)]
         public void TernaryOperators()
         {
-            Assert.Equal(FILL_ME_IN, (true ? 1 : 0));
-            Assert.Equal(FILL_ME_IN, (false ? 1 : 0));
+            Assert.Equal(1, (true ? 1 : 0));
+            Assert.Equal(0, (false ? 1 : 0));
         }
 
         //This is out of place for control statements, but necessary for Koan 8
@@ -89,8 +89,8 @@ namespace DotNetCoreKoans.Koans
             //i = null; //You can't do this
 
             int? nullableInt = null; //but you can do this
-            Assert.NotNull(FILL_ME_IN);
-            Assert.Null(FILL_ME_IN);
+            Assert.NotNull(i);
+            Assert.Null(nullableInt);
         }
 
         [Step(8)]
@@ -100,7 +100,7 @@ namespace DotNetCoreKoans.Koans
 
             int x = nullableInt ?? 42;
 
-            Assert.Equal(FILL_ME_IN, x);
+            Assert.Equal(42, x);
         }
 
         [Step(9)]
@@ -121,9 +121,9 @@ namespace DotNetCoreKoans.Koans
             if (myType is AboutMethods)
                 isAboutMethods = true;
 
-            Assert.Equal(FILL_ME_IN, isKoan);
-            Assert.Equal(FILL_ME_IN, isAboutControlStatements);
-            Assert.Equal(FILL_ME_IN, isAboutMethods);
+            Assert.Equal(true, isKoan);
+            Assert.Equal(true, isAboutControlStatements);
+            Assert.Equal(false, isAboutMethods);
 
         }
 
@@ -137,7 +137,7 @@ namespace DotNetCoreKoans.Koans
                 result = result + i;
                 i += 1;
             }
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equal(7, result);
         }
 
         [Step(11)]
@@ -151,7 +151,7 @@ namespace DotNetCoreKoans.Koans
                 result = result + i;
                 i += 1;
             }
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equal(7, result);
         }
 
         [Step(12)]
@@ -165,7 +165,7 @@ namespace DotNetCoreKoans.Koans
                 if ((i % 2) == 0) { continue; }
                 result.Add(i);
             }
-            Assert.Equal(FILL_ME_IN, result);
+            Assert.Equal(new int[] { 1, 3, 5, 7, 9 }, result);
         }
 
         [Step(13)]
@@ -176,7 +176,7 @@ namespace DotNetCoreKoans.Koans
             {
                 list[i] = (list[i].ToUpper());
             }
-            Assert.Equal(FILL_ME_IN, list);
+            Assert.Equal(new List<string> { "FISH", "AND", "CHIPS" }, list);
         }
 
         [Step(14)]
@@ -188,8 +188,8 @@ namespace DotNetCoreKoans.Koans
             {
                 finalList.Add(item.ToUpper());
             }
-            Assert.Equal(FILL_ME_IN, list);
-            Assert.Equal(FILL_ME_IN, finalList);
+            Assert.Equal(new List<string> { "fish", "and", "chips" }, list);
+            Assert.Equal(new List<string> { "FISH", "AND", "CHIPS" }, finalList);
         }
 
         [Step(15)]
@@ -205,7 +205,7 @@ namespace DotNetCoreKoans.Koans
             }
             catch (Exception ex)
             {
-                Assert.Equal(typeof(FillMeIn), ex.GetType());
+                Assert.Equal(typeof(System.InvalidOperationException), ex.GetType());
             }
         }
 
@@ -234,7 +234,7 @@ namespace DotNetCoreKoans.Koans
                 whoCaughtTheException = "When we tried to move to the next item in the list";
             }
 
-            Assert.Equal(FILL_ME_IN, whoCaughtTheException);
+            Assert.Equal("When we tried to move to the next item in the list", whoCaughtTheException);
         }
     }
 }

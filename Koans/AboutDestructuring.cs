@@ -22,8 +22,8 @@ namespace DotNetCoreKoans.Koans
 
             var (firstName, lastName) = batman; // This is destructuring
 
-            Assert.Equal(FILL_ME_IN, firstName);
-            Assert.Equal(FILL_ME_IN, lastName);
+            Assert.Equal("Bruce", firstName);
+            Assert.Equal("Wayne", lastName);
         }
 
         // you can avoid destructuring a property
@@ -35,7 +35,7 @@ namespace DotNetCoreKoans.Koans
 
             var (_, lastName) = batman;
 
-            Assert.Equal(FILL_ME_IN, lastName);
+            Assert.Equal("Wayne", lastName);
         }
 
 
@@ -51,8 +51,8 @@ namespace DotNetCoreKoans.Koans
 
             var (firstName, lastName) = batman; //uses Deconstruct(out string fistName, out string lastName)
 
-            Assert.Equal(FILL_ME_IN, firstName);
-            Assert.Equal(FILL_ME_IN, lastName);
+            Assert.Equal("Bruce", firstName);
+            Assert.Equal("Wayne", lastName);
         }
 
 
@@ -65,7 +65,7 @@ namespace DotNetCoreKoans.Koans
 
             var (_, lastName) = batman; // uses Deconstruct(out string fistName, out string lastName)
 
-            Assert.Equal(FILL_ME_IN, lastName);
+            Assert.Equal("Wayne", lastName);
         }
 
 
@@ -78,7 +78,7 @@ namespace DotNetCoreKoans.Koans
 
             var (firstName, _, heroName) = batman; // uses Deconstruct(out string firstName, out string lastName, out string heroName)
 
-            Assert.Equal(FILL_ME_IN, heroName);
+            Assert.Equal("Batman", heroName);
 
             // Do you think it is a good practice ?
         }

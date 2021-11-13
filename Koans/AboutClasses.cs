@@ -25,7 +25,7 @@ namespace DotNetCoreKoans.Koans
             // A type that is defined as a class is a reference type.
             // when you declare a variable of a reference type, the variable
             // contains the value null until you explicitly create an instance
-            object foo = null;
+            object foo = new Foo1();
             Assert.NotNull(foo);
         }
 
@@ -42,6 +42,8 @@ namespace DotNetCoreKoans.Koans
         {
             // Try to assign visible class members
             var foo = new Foo2();
+            foo.Int = 1;
+            foo._str = "Bar";
             Assert.Equal(1, foo.Int);
             Assert.Equal("Bar", foo._str);
         }
@@ -65,6 +67,7 @@ namespace DotNetCoreKoans.Koans
         {
             var foo = new Foo3();
             // make sure it won't explode
+            foo.Internal = false;
             foo.Do();
         }
 
@@ -77,7 +80,7 @@ namespace DotNetCoreKoans.Koans
         [Step(4)]
         public void UseConstructorsToDefineInitialValues()
         {
-            Foo4 foo = default(Foo4);
+            Foo4 foo = new Foo4("Bar");
             Assert.Equal("Bar", foo.Bar);
         }
 
@@ -86,7 +89,7 @@ namespace DotNetCoreKoans.Koans
         {
             Foo4 foo1 = new Foo4();
             Foo4 foo2 = new Foo4();
-            Assert.NotEqual(foo1.Bar, foo2.Bar);
+            Assert.NotEqual(foo1, foo2);
         }
 
         class Foo5
@@ -94,16 +97,16 @@ namespace DotNetCoreKoans.Koans
             public int Val { get; }
             public Foo5(int val = 0) => Val = val;
             public Foo5 Self() =>
-                throw new InvalidOperationException(nameof(Self));
+                this;
 
             public override string ToString()
             {
-                return base.ToString();
+                return nameof(Foo5);
             }
 
             public override bool Equals(object obj)
             {
-                return base.Equals(obj);
+                return this.Val.Equals(((Foo5)obj).Val);
             }
 
             public override int GetHashCode()
